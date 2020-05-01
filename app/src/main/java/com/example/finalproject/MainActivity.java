@@ -1,9 +1,9 @@
 package com.example.finalproject;
 import java.util.ArrayList;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 grid.get(i).add(new Block(0));
             }
         }
+        MediaPlayer ring= MediaPlayer.create(MainActivity.this, R.raw.cymophane);
+        ring.start();
+
         zeroZero = findViewById(R.id.zeroZero);
         zeroOne = findViewById(R.id.zeroOne);
         zeroTwo = findViewById(R.id.zeroTwo);
@@ -125,19 +128,14 @@ public class MainActivity extends AppCompatActivity {
         updateGrids();
 
     }
+
+
     public static void youwin() {
         left.setVisibility(View.GONE);
         right.setVisibility(View.GONE);
         up.setVisibility(View.GONE);
         down.setVisibility(View.GONE);
         annoucement.setText("You win!");
-    }
-    public static void youloss() {
-        left.setVisibility(View.GONE);
-        right.setVisibility(View.GONE);
-        up.setVisibility(View.GONE);
-        down.setVisibility(View.GONE);
-        annoucement.setText("You lose!");
     }
 
     public static void updateGrids() {
